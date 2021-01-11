@@ -1,8 +1,10 @@
 <template>
   <div class="page page-login">
     <el-card class="login-wrapper">
-      <img src="http://cloud-data-visualization.rootcloud.com/assets/images/system.png" alt="" />
-
+      <img
+        src="http://cloud-data-visualization.rootcloud.com/assets/images/system.png"
+        alt=""
+      />
       <!-- 表单登录 -->
       <div class="login-by-form">
         <el-form
@@ -31,7 +33,7 @@
             />
           </el-form-item>
         </el-form>
-
+        <p style="color: red">账号密码随便输入</p>
         <el-button
           type="primary"
           size="large"
@@ -40,16 +42,13 @@
         >
           {{ submiting ? '正在提交' : '登录' }}
         </el-button>
-        <el-button type="text" @click="loginType = 'third'">
-          钉钉扫码登录
-        </el-button>
       </div>
     </el-card>
   </div>
 </template>
 
 <script>
-// import * as Auth from '../../../utils/auth'
+import * as Auth from '../../../utils/auth'
 
 export default {
   name: 'AccountLogin',
@@ -77,6 +76,21 @@ export default {
       if (errorMessage) return this.$message.error(errorMessage)
 
       this.submiting = true
+
+      // 登录跳转设置token到url上
+      const token = new Date().getTime()
+      Auth.setToken(token)
+
+      const redirect = decodeURIComponent(this.$route.query.redirect || '')
+      console.log(redirect)
+      if (redirect && /^http/.test(redirect)) {
+        const hasQuery = /\?/.test(redirect)
+        window.location.assign(
+          `${redirect}${hasQuery ? '&' : '?'}token=${token}`
+        )
+        return
+      }
+
       this.$router.replace({ path: '/' })
     },
   },

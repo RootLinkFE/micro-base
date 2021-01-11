@@ -4,12 +4,12 @@ import store from '../store'
 
 const apps = [
   {
-    name: 'Poster',
+    name: 'micro-admin-seed',
     entry: process.env.VUE_APP_APP1,
     container: '#frame',
-    activeRule: '/#/dayly',
-    title: '知乎日报',
-    path: '/dayly',
+    activeRule: '/#/seed',
+    title: '种子工程1',
+    path: '/seed',
     props: { store },
   },
   {
