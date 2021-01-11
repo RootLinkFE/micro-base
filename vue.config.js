@@ -1,6 +1,6 @@
 // vue.config.js
 
-const name = '快乐种子｜营销中心后台'
+const name = '根联平台'
 
 module.exports = {
   devServer: {
