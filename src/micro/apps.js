@@ -17,7 +17,7 @@ const apps = [
     entry: process.env.VUE_APP_APP2,
     container: '#frame',
     activeRule: '/#/admin',
-    title: '拼团',
+    title: 'vue后台',
     path: '/admin',
     props: { store },
   },
