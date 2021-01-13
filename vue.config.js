@@ -10,9 +10,9 @@ module.exports = {
   configureWebpack: {
     name: name,
     output: {
-      library: 'CrmBase',
+      library: 'MicroBase',
       libraryTarget: 'umd',
-      jsonpFunction: `webpackJsonp_CrmBase`,
+      jsonpFunction: `webpackJsonp_MicroBase`,
       filename: 'static/js/[name].[hash:6].js',
       chunkFilename: 'static/js/[name].[chunkhash:6].js',
     },

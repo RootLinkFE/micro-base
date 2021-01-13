@@ -12,15 +12,15 @@ const apps = [
     path: '/seed',
     props: { store },
   },
-  {
-    name: 'Groupon',
-    entry: process.env.VUE_APP_APP2,
-    container: '#frame',
-    activeRule: '/#/admin',
-    title: 'vue后台',
-    path: '/admin',
-    props: { store },
-  },
+  // {
+  //   name: 'micro-admin-seed1',
+  //   entry: process.env.VUE_APP_APP2,
+  //   container: '#frame',
+  //   activeRule: '/#/seed1',
+  //   title: 'vue后台',
+  //   path: '/seed1',
+  //   props: { store },
+  // },
 ]
 
 export default apps

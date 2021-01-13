@@ -1,11 +1,34 @@
 <template>
-  <div></div>
+  <div @click="handleClick">按钮</div>
 </template>
 
 <script>
+import { loadMicroApp } from 'qiankun'
+import store from '../store'
 export default {
   name: 'Home',
+  data() {
+    return {
+      microApp: null
+    }
+  },
   components: {},
+  mounted () {
+    
+  },
+  destroyed () {
+  },
+  methods: {
+    handleClick() {
+      let LoadableApp = {
+        name: 'micro-admin-seed1',
+        entry: process.env.VUE_APP_APP2,
+        container: '#frame1',
+        props: { store },
+      }
+      this.microApp = loadMicroApp(LoadableApp)
+    },
+  },
 }
 </script>
 

@@ -11,7 +11,6 @@ NProgress.configure({ showSpinner: false })
 const LOGIN_PATH = '/account/login'
 
 router.beforeEach(async (to, from, next) => {
-  console.log(to)
   const isToLoginPath = to.path === LOGIN_PATH
 
   if (isToLoginPath) return next()
