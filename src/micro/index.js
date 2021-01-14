@@ -62,7 +62,7 @@ actions.onGlobalStateChange((state, prev) => {
   console.log(state, prev, 'base')
 })
 window.base = 'base';
-console.log(window, 'base')
+
 export default {
   start: () => start(options),
 }
