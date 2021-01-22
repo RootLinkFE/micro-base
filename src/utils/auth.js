@@ -1,11 +1,9 @@
 // src/utils/auth.js
 
-import { Message } from 'element-ui'
-
 // import Request from '../request'
 
 const DEFAULT_LOGOUT_MESSAGE = '登录信息已过期，需要重新登录'
-const TOKEN = 'token'
+const TOKEN = 'Access-Token'
 
 export const setToken = (token) => {
   const value = { Authorization: `Bearer ${token}` }
@@ -34,6 +32,6 @@ export const logoutWithErrorMessage = (message = DEFAULT_LOGOUT_MESSAGE) => {
     type: 'error',
   }
 
-  Message(opts)
+  this.$message(opts)
   setTimeout(logout, duration)
 }

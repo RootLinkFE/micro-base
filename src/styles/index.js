@@ -3,5 +3,5 @@
 // import 'normalize.css/normalize.css'
 import 'nprogress/nprogress.css'
 
-import './index.scss'
-import './reset.scss'
+import './index.less'
+import './reset.less'

@@ -1,43 +1,17 @@
 <template>
-  <el-container class="main-app">
-    <el-header class="menu-wrapper" v-show="isShowAppHeader">
-      <img src="http://cloud-data-visualization.rootcloud.com/assets/images/system.png" alt="" class="header-logo" />
-
-      <el-menu
-        class="menu"
-        mode="horizontal"
-        :default-active="defaultActive"
-        background-color="#50c8b9"
-        text-color="#fff"
-        active-text-color="#FADD6F"
-        @select="onMenuSelect"
-      >
-        <el-menu-item
-          v-for="menu in menus"
-          :key="menu.name"
-          :index="menu.title"
-        >
-          {{ menu.title }}
-        </el-menu-item>
-      </el-menu>
-
-      <app-header-account />
-      <!-- <div id="frame1" style="width: 100px; height: 100px"></div> -->
-    </el-header>
-
-    <el-main class="frame-wrapper">
+  <a-layout class="main-app">
+    <a-layout-content class="frame-wrapper">
       <!-- 匹配基座自身路由 -->
       <router-view v-show="$route.name" />
       <!-- 匹配微应用 -->
       <div v-show="!$route.name" id="frame"></div>
-    </el-main>
-  </el-container>
+    </a-layout-content>
+  </a-layout>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
-import AppHeaderAccount from './components/app/header/account'
 import apps from './micro/apps'
 
 const HIDE_HEADER_PATHS = ['/account/login', '/error/404']
@@ -52,9 +26,7 @@ const mainMenus = [
 export default {
   name: 'app',
 
-  components: {
-    AppHeaderAccount,
-  },
+  components: {},
 
   data() {
     return {
@@ -101,7 +73,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 @import './styles/themes/default';
 
 .main-app {
@@ -126,15 +98,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 0 15px;
-  background-color: $brand-primary;
-
-  /deep/ .el-menu-item {
-    font-weight: bold;
-  }
-
-  /deep/ .el-menu.el-menu--horizontal {
-    border-bottom: none;
-  }
+  background-color: @brand-primary;
 }
 
 .menu {

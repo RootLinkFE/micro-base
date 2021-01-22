@@ -1,49 +1,48 @@
 <template>
   <div class="page page-login">
-    <el-card class="login-wrapper">
+    <a-card class="login-wrapper">
       <img
+        style="margin-bottom: 20px"
         src="http://cloud-data-visualization.rootcloud.com/assets/images/system.png"
         alt=""
       />
       <!-- 表单登录 -->
       <div class="login-by-form">
-        <el-form
+        <a-form
           ref="loginForm"
-          label-position="top"
-          size="large"
-          :model="loginForm"
+          :labelCol="{ sm: { span: 4 } }"
+          :wrapper-col="{ sm: { span: 20 } }"
+          :form="loginForm"
         >
-          <el-form-item label="账号" prop="username">
-            <el-input
+          <a-form-item label="账号" prop="username">
+            <a-input
               clearable
               v-model="loginForm.username"
-              auto-complete="off"
               @keyup.enter.native="$refs.password.focus()"
             />
-          </el-form-item>
+          </a-form-item>
 
-          <el-form-item label="密码" prop="password" class="password-item">
-            <el-input
+          <a-form-item label="密码" prop="password" class="password-item">
+            <a-input
               clearable
               ref="password"
               v-model="loginForm.password"
               type="password"
-              auto-complete="off"
               @keyup.enter.native="onSubmitForm"
             />
-          </el-form-item>
-        </el-form>
+          </a-form-item>
+        </a-form>
         <p style="color: red">账号密码随便输入</p>
-        <el-button
+        <a-button
           type="primary"
-          size="large"
+          block
           :loading="submiting"
           @click="onSubmitForm"
         >
           {{ submiting ? '正在提交' : '登录' }}
-        </el-button>
+        </a-button>
       </div>
-    </el-card>
+    </a-card>
   </div>
 </template>
 
@@ -82,7 +81,6 @@ export default {
       Auth.setToken(token)
 
       const redirect = decodeURIComponent(this.$route.query.redirect || '')
-      console.log(redirect)
       if (redirect && /^http/.test(redirect)) {
         const hasQuery = /\?/.test(redirect)
         window.location.assign(
@@ -97,7 +95,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 @import '../../../styles/themes/default';
 
 .page {
@@ -106,43 +104,17 @@ export default {
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  background-color: $brand-primary;
+  background-color: @brand-primary;
 }
 
 .login-by-thrid,
 .login-by-form {
   width: 100%;
-
-  /deep/ .el-button {
-    width: 100%;
-  }
-
-  /deep/ .el-button + .el-button {
-    margin-top: 15px;
-    margin-left: 0;
-  }
-
-  /deep/ .el-form-item__label {
-    padding-bottom: 0;
-    line-height: 2.4em;
-  }
 }
 
 .login-wrapper {
   width: 350px;
-
-  /deep/ .el-card__body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      width: 200px;
-      height: 47px;
-      margin-top: 15px;
-      margin-bottom: 30px;
-    }
-  }
+  text-align: center;
 }
 
 .login-by-form {

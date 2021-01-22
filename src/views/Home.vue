@@ -3,36 +3,34 @@
 </template>
 
 <script>
-import { loadMicroApp } from 'qiankun'
-import store from '../store'
+// import { loadMicroApp } from 'qiankun'
+// import store from '../store'
 export default {
   name: 'Home',
   data() {
     return {
-      microApp: null
+      microApp: null,
     }
   },
   components: {},
-  mounted () {
-    
-  },
-  destroyed () {
-  },
+  mounted() {},
+  destroyed() {},
   methods: {
     handleClick() {
-      let LoadableApp = {
-        name: 'micro-admin-seed1',
-        entry: process.env.VUE_APP_APP2,
-        container: '#frame1',
-        props: { store },
-      }
-      this.microApp = loadMicroApp(LoadableApp)
+      this.$router.push('/app')
+      // let LoadableApp = {
+      //   name: 'micro-admin-seed1',
+      //   entry: process.env.VUE_APP_APP2,
+      //   container: '#frame1',
+      //   props: { store },
+      // }
+      // this.microApp = loadMicroApp(LoadableApp)
     },
   },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .page-home {
   height: 100%;
   width: 100%;

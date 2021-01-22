@@ -5,22 +5,22 @@ import router from '../router'
 
 const apps = [
   {
-    name: 'micro-admin-seed',
-    entry: process.env.VUE_APP_APP1,
+    name: 'edu-app',
+    entry: process.env.VUE_APP_EDU_APP,
     container: '#frame',
-    activeRule: '/#/seed',
-    title: '种子工程1',
-    path: '/seed',
+    activeRule: '/app',
+    title: '教育应用',
+    path: '/app',
     props: { store, baseRouter: router },
   },
   {
-    name: 'micro-admin-seed1',
-    entry: process.env.VUE_APP_APP2,
+    name: 'micro-admin-seed',
+    entry: process.env.VUE_APP_EDU_APP1,
     container: '#frame',
-    activeRule: '/#/seed1',
-    title: 'vue后台',
-    path: '/seed1',
-    props: { store },
+    activeRule: '/app1',
+    title: '测试',
+    path: '/app1',
+    props: { store, baseRouter: router },
   },
 ]
 

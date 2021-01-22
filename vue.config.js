@@ -1,16 +1,16 @@
 // vue.config.js
 
-const name = '根联平台'
+const name = 'RootHome基座'
 
 module.exports = {
   devServer: {
-    port: '9000',
+    port: '8000',
   },
 
   configureWebpack: {
     name: name,
     output: {
-      library: 'MicroBase',
+      library: 'RHbase',
       libraryTarget: 'umd',
       jsonpFunction: `webpackJsonp_MicroBase`,
       filename: 'static/js/[name].[hash:6].js',

@@ -1,0 +1,3 @@
+[submodule "shared"]
+	path = shared
+	url = http://gitlab.bighome360.com/rootcloud-education/fe-group/shared.git

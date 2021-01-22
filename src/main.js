@@ -6,10 +6,11 @@ import store from './store'
 import Request from './request'
 import Micro from './micro'
 import './initialize'
-import './plugins/element'
 import './styles'
+import './plugins/lazy-use'
+import 'ant-design-vue/dist/antd.css';
 
-document.title = '根联平台'
+document.title = '根联家居'
 Vue.config.productionTip = false
 
 Vue.prototype.$http = Request
